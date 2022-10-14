@@ -3,17 +3,15 @@ from classes.user import User
 from classes.budget import Budget
 
 def run_budget(run=True):
+
+    user_info = create_new_user()
+
     while run == True:
-        user_info = create_new_user()
         
         # print(front_page())
 
         if front_page() == False:
             run = False
-        
-
-
-
 
 
 def create_new_user():
@@ -33,58 +31,38 @@ def create_new_user():
 
     return user_info
 
-def create_new_budget():
-    new_budget_cat = input("Enter a new budget category: ")
-    new_budget_balance = input("Enter the budget limit: ")
-
-    new_budget_info = {
-        'category': new_budget_cat,
-        'balance': new_budget_balance
-    }
-
-    new_budget = Budget(**new_budget_info)
-    print(vars(new_budget))
-
-    return new_budget
-
 
 def front_page():
     print(f"Please select from the following option:\n")
-    front_page_option = input("1. View your budget balance\n2. View your transaction history\n3. Create a new budget\n4. Make a transaction\n5. Quit\n")
+    front_page_option = input("1. View your budget balance\n2. View your transaction history\n3. Create a new budget\n4. Make a transaction\n5. Percentage spent in each category\n6. Post your monthly income\n7. View your total remaining monthly balance\n8. Quit\n")
 
     if front_page_option == '1':
-        budget_page()
+        Budget.get_budget_list()
+        # front_page()
 
     elif front_page_option == '2':
-        pass
+        Budget.get_transaction_history()
 
     elif front_page_option == '3':
-        create_new_budget()
-        front_page()
+        Budget.create_budget()
+        # front_page()
 
     elif front_page_option == '4':
-        pass
+        Budget.post_transaction()
 
     elif front_page_option == '5':
+        Budget.calculate_expense_percentage()
+
+    elif front_page_option == '6':
+        Budget.post_income()
+
+    elif front_page_option == '7':
+        Budget.get_remaining_total_balance()
+
+    elif front_page_option == '8':
         return False
 
 
-def budget_page():
-    print("Welcome to your budget list!\nPlease select the following option to view your remaining budget in each category.")
-    budget_option = input("1. Rent\n2. Utilities\n3. Food\n4. Transportation\n5. Entertainment\6. Return to main menu")
-
-    if budget_option == '1':
-        pass
-    elif budget_option == '2':
-        pass
-    elif budget_option == '3':
-        pass
-    elif budget_option == '4':
-        pass
-    elif budget_option == '5':
-        pass
-    elif budget_option == '6':
-        front_page()
 
 
 

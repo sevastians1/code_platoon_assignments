@@ -10,9 +10,9 @@ Your instructor, Jon, has a tough time with managing his money. He's been told t
 * Having Python objects talk to one another
 
 ### Release 0
-Think through the classes you'll need to write this app. This is an open-ended challenge, but some possibilities may include: budget, transaction, budget category, etc. 
+    Think through the classes you'll need to write this app. This is an open-ended challenge, but some possibilities may include: budget, transaction, budget category, etc. 
 
-Start by implementing the following features. Feel free to add more to push your learning. 
+    Start by implementing the following features. Feel free to add more to push your learning. 
 * It should Keep track of expenses including but not limited to Living, Food, Travel, Savings, and Leisure. 
 * Users should be able to update their monthly income. 
 * It should know how much the user's monthly costs are. 
