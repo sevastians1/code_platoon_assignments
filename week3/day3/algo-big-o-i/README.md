@@ -16,6 +16,7 @@ Give the efficiency of each of the following code snippets. Try out the code sni
 ### Problems for you
 
 Snippet 1 - Big O:
+O(n)
 
 ```python
 def largest(array, value):
@@ -26,6 +27,7 @@ def largest(array, value):
 ```
 
 Snippet 2 - Big O:
+O(2n)
 
 ```python
 def info_dump(customers):
@@ -41,12 +43,16 @@ def info_dump(customers):
 ```
 
 Snippet 3 - Big O:
+O(1)
+
 ```python
 def first_element_is_red(array):
   return array[0] == 'red' 
 ```
 
 Snippet 4 - Big O:
+O(n^2)
+
 ```python
 def duplicates(array):
   for index1, item1 in enumerate(array):
@@ -59,6 +65,8 @@ def duplicates(array):
 ```
 
 Snippet 5 - Big O:
+O(n^3)
+
 ```python
 words = ['chocolate', 'coconut', 'rainbow']
 endings = ['cookie', 'pie', 'waffle']
@@ -70,6 +78,8 @@ for word in words:
 ```
 
 Snippet 6 - Big O:
+O(n)
+
 ```python
 numbers = [1,2,3,4,5,6,7,8,9,10]
 
@@ -80,6 +90,7 @@ def print_array(array):
 ```
 
 Snippet 7 - Big O:
+O(n)
 
 ```python
 # this is insertion sort
@@ -94,6 +105,8 @@ def insertionSort(arr):
 ```
 
 Snippet 8 - Big O:
+O(n^2)
+
 ```python
 for i in range(len(my_list)):
   min_idx = i
