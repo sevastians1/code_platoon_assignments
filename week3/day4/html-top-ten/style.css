@@ -1,0 +1,58 @@
+/* to show your CSS things, you'll likely need to use this file */
+
+.header-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 1em;
+    width: 95%;
+    height: 100vh;
+}
+
+img {
+    height: 30rem;
+    width: 40rem;
+}
+
+.first-body-container {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    /* border: 2px;
+    border-color: black;
+    border-style: solid; */
+    /* gap: 1em; */
+    width: 95%;
+    height: 100vh;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+
+    /* border: 2px;
+    border-color: black;
+    border-style: solid; */
+    margin-bottom: 1em;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.left {
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    height: 25rem;
+    width: 100%
+    
+}
+
+.right {
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    height: 25rem;
+    height: 100%;
+}

@@ -1,54 +1,36 @@
-
 from .owner import Owner
 import csv
 
-
 class Account:
-    accounts_list = []
 
     def __init__(self, id, balance, open_date, bank):
         self.id = id
         self.balance = balance
         self.open_date = open_date
         self.bank = bank
-
-        for owner in Owner.owner_list:
-            print(self.id)
-            print(owner.id)
-            if self.id == owner.id:
-                self.owner_account = owner
-            else:
-                self.owner_account = None
-
-        Account.accounts_list.append(self)
+        self.owner = Owner.get_owner_info(id)
 
 
-    def all_accounts(bank):
-        with open(f"./support/accounts.csv", "r") as csvfile:
-            accounts_dict = csv.DictReader(csvfile, delimiter = ',', skipinitialspace=True)
-
-            for account in accounts_dict:
-                account['bank'] = bank
-                Account(**account)
-
-
-    def withdraw(id, amount):
-        for account in Account.accounts_list:
+    @staticmethod
+    def get_account_by_id(accounts, id):
+        for account in accounts:
             if account.id == id:
-                if account.balance - amount < 0:
-                    return 'Cannot withdraw more than what is remaining in your bank balance'
-                else:
-                    account.balance -= amount
-                    return f"Amount of {amount} has been withdrawn from your account.\nRemaining balance is {account.balance - amount}"
-
-
-    def get_account(id):
-        for account in Account.accounts_list:
-            if account.id == id:
+                print(account.id, account.balance, account.open_date, account.bank)
                 return account
+            else:
+                return f"There is no account by the id {id}"
 
+    @staticmethod
+    def withdraw(accounts, id, amount):
+        for account in accounts:
+            if id == account.id:
+                account.balance -= amount
+                print(account.balance)
 
-    def deposit(self, id, amount):
-        for account in Account.accounts_list:
-            if account.id == id:
-                self.balance += amount
+    @staticmethod
+    def deposit(accounts, id, amount):
+        for account in accounts:
+            if id == account.id:
+                account.balance += amount
+                print(account.balance)
+    

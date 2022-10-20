@@ -1,88 +1,89 @@
-class Bst:
-  def __init__(self, parent=None):
-    self.parent = Node(parent)
-
-  def insert(self, parent, value):
-
-
-    if parent is None:
-      return Node(value)
-
-    elif parent.data == value:
-      return
-
-
-    elif value > parent.data:
-      if parent.right == None:
-        parent.right = Node(value)
-      else:
-        return self.insert(parent.right, value)
-    
-
-    elif value < parent.data:
-      if parent.left == None:
-        parent.left = Node(value)
-      else:
-        return self.insert(parent.left, value)
-      
-    return parent
-
-
-  def contains(self, parent, value):
-    if parent.data == value:
-      return True
-
-    else:
-      if value > parent.data:
-        if parent.right == None:
-          return False
-        else:
-          return self.contains(parent.right, value)
-      
-      else:
-        if parent.left == None:
-          return False
-        else:
-          return self.contains(parent.left, value)
-
-
-  def remove(self, parent, value):
-    pass
-
-
-# ----- Node ------
 class Node:
-  # store your DATA and LEFT and RIGHT values here
-  def __init__(self, data=None):
+
+  def __init__(self, val) -> None:
     self.left = None
     self.right = None
-    self.data = data
-
-  def __str__(self) -> str:
-    return str(self.data)
-
-new_bst = Bst(12)
-new_bst.insert(new_bst.parent, 2)
-new_bst.insert(new_bst.parent, 4)
-new_bst.insert(new_bst.parent, 5)
-new_bst.insert(new_bst.parent, 1)
-
-print(new_bst.parent)
-print(new_bst.parent.right)
-print(new_bst.parent.left)
-print(new_bst.parent.left.right)
-print(new_bst.parent.left.right.right)
-print(new_bst.parent.left.left)
-print(new_bst.parent.left.left.right)
-
-print(new_bst.contains(new_bst.parent, 4))
-# print(new_bst.parent.left.left)
-# print(new_bst.parent.left.left.right)
+    self.value = val
 
 
-# print(new_bst.parent.value)
+# class BST:
+  
+#   def __init__(self) -> None:
+#     self.root = None
+
+def insert(root=None, val=None):
+  
+  # insert at root --> root = None
+  if root is None:
+    root = Node(val)
+    return root
+
+
+  else:
+    # cur_node = root
+    
+    if val < root.value:
+      root.left = insert(root.left, val)
+    
+    elif val > root.value:
+      root.right = insert(root.right, val)
+
+    # if exists, then just return
+    else:
+      return root
+
+  return root
+
+# 3 ways to traverse through the tree
+# 1
+def inorder(root):
+  if root:
+    inorder(root.left)
+    print(root.value)
+    inorder(root.right)
+
+# 2
+def preorder(root):
+  if root:
+    print(root.value)
+    preorder(root.left)
+    preorder(root.right)
+
+# 3
+def postorder(root):
+  if root:
+    postorder(root.left)
+    postorder(root.right)
+    print(root.value)
+
+  # else
+    # if val < root --> go left
+    # if val > root --> go right
 
 
 
+root = insert(None, 30)
+# print(root.value)
 
+root = insert(root, 39)
 
+root = insert(root, 40)
+
+root = insert(root, 41)
+
+root = insert(root, 20)
+# print(root.left.value)
+
+root = insert(root, 21)
+# print(root.left.left.value)
+
+root = insert(root, 19)
+
+print('inorder')
+inorder(root)
+
+print('preorder')
+preorder(root)
+
+print('postorder')
+postorder(root)

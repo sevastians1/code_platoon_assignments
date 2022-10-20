@@ -4,33 +4,46 @@ from classes.owner import Owner
 
 
 
-new_bank = Bank('Chase')
-# new_bank.account_list.('1', 13312, 'open date')
-new_owner = Owner('1','soo','saam','some address','cit name','statekfkf','5')
+Owner.add_reserved_owners()
 
-new_account = Account(1,120,'some date', new_bank)
+new_bank = Bank('new_bank')
 
-# print(new_account.balance)
+print(new_bank.name)
 
-Account.all_accounts(new_bank)
-# print(Account.accounts_list)
+new_owner_info = {
+    'owner_id': 10,
+    'last_name': 'Son',
+    'first_name': 'Samuel',
+    'address': 'some address',
+    'city': 'some city',
+    'state': 'some state',
+}
+
+new_account_info = {
+    'id': 1,
+    'balance': 10322,
+    'open_date': 'July',
+    'bank': new_bank.name,
+}
+
+new_bank.add_account(**new_account_info)
+
+# print(new_bank.accounts[-1].owner.first_name)
 
 
-# for account in Account.accounts_list:
-#     print(account.__str__())
-# print(new_account.id)
+new_bank.add_saved_accounts()
+
+print(new_bank.accounts[-1].owner)
+
+# for contact in new_bank.accounts:
+#     print(contact.owner)
 
 
-print(Account.get_account(1).bank.name)
-print(Account.get_account(1).balance)
-print(Account.withdraw(1, 50))
-print(Account.get_account(1).balance)
+# Account.withdraw(new_bank.accounts, 1, 1000)
+# Account.get_account_by_id(new_bank.accounts, 1)
+# Account.deposit(new_bank.accounts, 1, 2000)
+# Account.get_account_by_id(new_bank.accounts, 1)
 
+# new_bank.remove_account(1)
 
-# def make_withdrawal(id):
-new_owner = Owner.all_owner()
-# print(Owner.owner_list)
-print(Account.get_account(1).owner_account)
-
-for account in Account.accounts_list:
-    print(account.id)
+# new_bank.display_all_accounts()
