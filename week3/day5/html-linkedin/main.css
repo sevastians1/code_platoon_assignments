@@ -1,0 +1,181 @@
+/* ROOT STYLES */
+*, *:before, *::after {
+    padding: 0;
+    border: 0;
+    outline: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box
+}
+
+
+hr {
+    border-width: .1px;
+    opacity: .5;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 1px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* write styles here */
+
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem;
+}
+
+.navbar_nav {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 3rem;
+}
+
+.main_body_container {
+    display: flex;
+    margin: 4rem;
+}
+
+
+/* MAIN BODY LEFT SECTION */
+.left_section {
+    display: block;
+    width: 1000px;
+    margin-right: 2rem;
+}
+
+.profile_wrapper {
+    border-style: solid;
+    border-color: grey;
+    border-width:.1px;
+    border-radius: 3%;
+    /* height: 400px; */
+}
+
+.profile_background {
+    display: block;
+    position: relative;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 250px;
+    /* overflow: hidden; */
+    /* opacity: ; */
+}
+
+.profile_background_img {
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-image: url("https://res.cloudinary.com/daehan/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1653145480/Pet%20Media/crown_hcfuma.jpg");
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+}
+
+.profile_snapshot {
+    width: 100px;
+    height: 100px;
+    /* z-index: ; */
+    margin-top: -115px;
+    margin-left: 20px;
+}
+
+.profile_snapshot_img {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    
+    opacity: 1;
+    background:transparent;
+    border-radius: 90%;
+}
+
+.profile_content_wrapper {
+    display: flex;
+    margin: 1em;
+    justify-content: space-between;
+}
+
+.profile_content_left {
+    /* display: block; */
+}
+
+.profile_content_left h2 {
+    font-size: 22px;
+}
+
+.profile_content_left h3 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.profile_content_left h4 {
+    font-size: 14px;
+    font-weight: normal;
+    opacity: .6;
+}
+
+.profile_content_right {
+    
+}
+
+.section_container {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.right_section {
+    display: block;
+    width: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer_container {
+    display: block;
+}
+
+.footer_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.footer_list li {
+    font-size: 13px;
+}
