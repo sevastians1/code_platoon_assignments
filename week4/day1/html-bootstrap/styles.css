@@ -1,4 +1,7 @@
-
+.main-container {
+    display: grid;
+    grid-template-columns: auto;
+}
 
 .navbar-toggler-icon {
     color: white;
@@ -63,12 +66,11 @@
 
 .card {
     height: 580px;
-    width: 708px;
+    width: 99%;
 }
 
 .card-img {
     height: 100%;
-    width: 100%;
 }
 
 
@@ -77,7 +79,9 @@
 }
 
 .footer {
+    display: grid;
     background-color: rgb(248, 247, 247);
+    justify-content: center;
 }
 
 .footer-container {
