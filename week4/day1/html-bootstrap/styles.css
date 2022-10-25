@@ -1,6 +1,6 @@
 .main-container {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-rows: auto;
 }
 
 .navbar-toggler-icon {
