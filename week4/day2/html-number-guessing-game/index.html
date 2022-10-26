@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>TITLE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Your link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Your Javascript file goes here -->
+    
+  </head>
+  <body>
+    <!-- your HTML should go here -->
+    <nav>
+      <h1>Let's Play the Guessing Number Game!</h1>
+    </nav>
+    <div>
+      <button onclick="generateRandNum()">Generate a random num</button>
+      <button onclick="runGame()">Let's Play!</button>
+      <p id="display_arr"></p>
+    </div>
+    <div>
+      <input type="text" name="number" id="guess_num"/>
+      <input type="submit" value="submit" onclick="guessNum()"/>
+      <p id="show_num"></p>
+      <p id="guess"></p>
+
+    </div>
+
+    <script src="app.js" async defer></script>
+  </body>
+</html>
