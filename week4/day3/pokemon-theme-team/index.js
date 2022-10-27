@@ -1,73 +1,79 @@
-let pokemonChosen = 0
-
-
 
 const getRandomPokemon = async () => {
     // let randNum = Math.floor(Math.random() * length())
     // console.log('yes!')
-    let pokemonData = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
-        .then((res) => {
-            
-            let response = res.data.results
+    let response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
+       
+    let pokemonData = response.data.results
 
-            let randNum = Math.floor(Math.random() * response.length)
-            
-            let randPokemon = response[randNum]
+    let randNum = Math.floor(Math.random() * pokemonData.length)
+        
+    let randPokemon = pokemonData[randNum]
 
-            // pokemonChosen = randPokemon.name
-            // console.log(pokemonChosen)
+    let randPokemonURL = randPokemon.url
 
-            // console.log(randPokemon)
-            return randPokemon
+    let randPokemonType = await getRandomPokemonType(randPokemonURL)
+    console.log(randPokemonType)
 
-        }).catch((error) => {
-            console.log('No good: ', error)
-        })
+    let randPokemonSprite = await getRandomPokemonSprite(randPokemon.url)
+    console.log(randPokemonImage)
 
-    let randomPokemonType = await axios.get(`${pokemonData.url}`)
-        .then((res) => {
-            let response = res.data.types[0].type
-            // this.pokemonTypeURL = pokemonType.url
-            // console.log(response)
-            return response
-        }).catch((error) => {
-            console.log('No good: ', error)
-        })
+    document.getElementById('rand-pokemon-name').innerHTML = `Name: ${randPokemon.name}`
+    document.getElementById('rand-pokemon-type').innerHTML = `Type: ${randPokemonType.name}`
     
-    // console.log(pokemonData.name)
-    // console.log(randomPokemonType.name)
+    let docPokemonImage = document.getElementById('rand-pokemon-image')
+    docPokemonImage.src = randPokemonSprite
 
-    document.getElementById('rand-pokemon-name').innerHTML = `Name: ${pokemonData.name}`
-    document.getElementById('rand-pokemon-type').innerHTML = `Type: ${randomPokemonType.name}`
+}
 
-    // console.log(pokemonData.name, randomPokemonType.name)
+const getRandomPokemonType = async (randPokemonURL) => {
 
-    return randomPokemonType
+    let response = await axios.get(randPokemonURL)
+
+    let randPokemonType = response.data.types[0].type
+
+    localStorage.setItem('pokemonType', randPokemonType.url)
+
+    return randPokemonType
+}
+
+const getRandomPokemonSprite = async (randPokemonSprite) => {
+
+    let response = await axios.get(randPokemonSprite)
+
+    randPokemonImage = response.data.sprites.other['official-artwork'].front_default
+
+    return randPokemonImage
 
 }
 
 
 const getSimilarPokemonType = async () => {
     
-    let randPokemonType = await getRandomPokemon()
+    let randPokemonTypeURL = localStorage.getItem('pokemonType')
 
-    console.log(randPokemonType)
+    // console.log(randPokemonTypeURL)
+
+    let response = await axios.get(randPokemonTypeURL)
+
+    let similarPokemon = response.data.pokemon
+
+    // console.log(similarPokemon)
 
     let poke_arr = []
 
-    let similarPokemon = await axios.get(`${randPokemonType.url}`)
-        .then((res) => {
-            let response = res.data.pokemon
-            
-            for (let i = 0; i < 5; i++) {
-                poke_arr.push(response[i].pokemon.name)
-            }
+    for (let i = 0; i < 5; i++) {
+        // console.log(similarPokemon[i].url)
+        poke_arr.push(similarPokemon[i].pokemon)
+    }
 
+    similarPokeImage = document.getElementById('similar-poke-image')
 
-
-        })
+    for (let i = 0; i < poke_arr.length; i++) {
+        similarPokeImage.innerHTML = `<img src="${poke_arr[i].url} alt="poke-image"`
+    }
     
-        console.log(poke_arr)
+
 
 
 
