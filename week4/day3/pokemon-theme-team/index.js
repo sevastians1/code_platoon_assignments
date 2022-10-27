@@ -13,10 +13,10 @@ const getRandomPokemon = async () => {
     let randPokemonURL = randPokemon.url
 
     let randPokemonType = await getRandomPokemonType(randPokemonURL)
-    console.log(randPokemonType)
+    // console.log(randPokemonType)
 
     let randPokemonSprite = await getRandomPokemonSprite(randPokemon.url)
-    console.log(randPokemonImage)
+    // console.log(randPokemonImage)
 
     document.getElementById('rand-pokemon-name').innerHTML = `Name: ${randPokemon.name}`
     document.getElementById('rand-pokemon-type').innerHTML = `Type: ${randPokemonType.name}`
@@ -43,6 +43,8 @@ const getRandomPokemonSprite = async (randPokemonSprite) => {
 
     randPokemonImage = response.data.sprites.other['official-artwork'].front_default
 
+
+    // console.log(randPokemonImage)
     return randPokemonImage
 
 }
@@ -66,11 +68,14 @@ const getSimilarPokemonType = async () => {
         // console.log(similarPokemon[i].url)
         poke_arr.push(similarPokemon[i].pokemon)
     }
+    console.log(poke_arr)
 
     similarPokeImage = document.getElementById('similar-poke-image')
 
     for (let i = 0; i < poke_arr.length; i++) {
-        similarPokeImage.innerHTML = `<img src="${poke_arr[i].url} alt="poke-image"`
+        let pokeImage = await getRandomPokemonSprite(poke_arr[i].url)
+        console.log(pokeImage)
+        similarPokeImage.innerHTML += `<img src=${pokeImage} alt="poke-image"/>`
     }
     
 
