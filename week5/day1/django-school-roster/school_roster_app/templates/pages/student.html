@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>All Students</h1>
+
+<ul>
+
+    {% for student in all_students%}
+
+    <li>
+        <a href="{{student.school_id}}/"/>
+        {{student.name}}
+    </li>
+
+    {% endfor %}
+
+</ul>
+
+<a href="/school/">Return home?</a>
+
+{% endblock %}

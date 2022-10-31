@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BOOTSTRAP -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script> -->
+
+    <link href="index.css" rel="stylesheet">
+
+    <script src="index.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>Welcome to my TODO List</h1>
+        </div>
+    </header>
+
+
+    <div class="to-do-list-container">
+
+        <ul class="list-group list-group-style" id="to-do-list">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+              <label class="form-check-label stretched-link" for="firstCheckboxStretched">First checkbox</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckboxStretched">
+              <label class="form-check-label stretched-link" for="secondCheckboxStretched">Second checkbox</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckboxStretched">
+              <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Third checkbox</label>
+            </li>
+        </ul>
+        <div>
+            <input id="input-value" type="text" placeholder="nothing"/>
+            <button onclick="addToList()">Add to To-Do List</button>
+        </div>
+    </div>
+    
+</body>
+</html>
