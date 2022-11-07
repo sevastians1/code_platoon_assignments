@@ -26,6 +26,8 @@ class AssociationTestCase(TestCase):
         """returns the comment's post"""
         self.assertEqual(self.comment_two.post, self.post)
 
+
+    # FAILING THIS TEST CASE
     def test_05_users_posts(self):
         """returns the posts written by this user"""
         self.assertEqual(list(self.user.posts.all()), [self.post])
