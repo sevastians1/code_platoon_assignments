@@ -1,0 +1,22 @@
+img {
+    height: 100px;
+    width: 180px;
+}
+
+.index-container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.brand-container {
+
+    
+}
+
+.brand-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 50px;
+}

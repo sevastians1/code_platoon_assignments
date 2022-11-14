@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+<head>
+
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" >
+
+</head>
+
+<body>
+    <div class="index-container">
+        <h1>Here at the index</h1>
+        <div class="brand-container">
+            <div class="brand-wrapper">
+
+                {% for brand in brands_list %}
+                    <div>
+                        <a href="{% url 'detail-brand' brand.id %}">
+                            <img src={{brand.brand_img}} alt='brand_img'>
+                        </a>
+                    </div>
+                {% endfor %}
+            <div>
+        <div>
+            
+        </div>
+        
+        <div>
+            <form action="{% url 'add-brand' %}" method='POST'>
+
+                {% csrf_token %}
+
+                <input id='brand_name' type='text' placeholder='BRAND NAME' name='brand-name'>
+                <input id='brand_img' type='text' placeholder='BRAND IMAGE' name='brand-img'>
+        
+                <button type='submit'>Add Brand</button>
+            </form>
+        </div>
+    </body>
+</html>

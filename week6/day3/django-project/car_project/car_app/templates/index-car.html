@@ -1,0 +1,44 @@
+{% load static %}
+
+<html>
+<head>
+
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" >
+
+</head>
+
+<body>
+    <div class="index-container">
+        <h1>Here at the index</h1>
+        <div class="brand-container">
+            <div class="brand-wrapper">
+      
+                {% for car in cars %}
+                    <div>
+                        <a href="{% url 'detail-brand' brand.id %}">
+                            <img src={{car.car_img}} alt='car_img'>
+                        </a>
+                    </div>
+                {% endfor %}
+    
+            <div>
+        <div>
+            
+        </div>
+        
+        <div>
+            <form action="{% url 'add-car' brand.id %}" method='POST'>
+
+                {% csrf_token %}
+
+                <input id='car_name' type='text' placeholder='CAR NAME' name='car-name'>
+                <input id='car_model' type='text' placeholder='CAR MODEL' name='car-model'>
+                <input id='car_color' type='text' placeholder='CAR COLOR' name='car-color'>
+                <input id='car_year_created' type='text' placeholder='CAR YEAR CREATED' name='car-year-created'>
+                <input id='car_img' type='text' placeholder='CAR IMG URL' name='car-img'>
+        
+                <button type='submit'>Add Car</button>
+            </form>
+        </div>
+    </body>
+</html>
