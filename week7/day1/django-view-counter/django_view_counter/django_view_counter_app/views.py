@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import random
 
 
-users = []
+users = {}
 
 def index(request):
 
@@ -11,10 +11,12 @@ def index(request):
     
     cookies = request.COOKIES
 
-    for user in users:
-        if user['user_id'] == int(user_id):
-            user['count'] += 1
-            print(user['count'])
+    count = users.get(int(user_id))
+    print(count)
+
+    if count is not None:
+        print('works')
+        users[int(user_id)] += 1
 
     data = {'users':users, 'cookies':cookies}
 
@@ -29,9 +31,7 @@ def set_cookie(request):
         count = 0
 
         new_user_id = random.randint(100,1000000)
-        new_user_data = {'user_id':new_user_id, 'count':count}
-
-        users.append(new_user_data)
+        users[new_user_id] = count
 
         session = request.session
 
