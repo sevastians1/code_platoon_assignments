@@ -33,7 +33,7 @@ def set_cookie(request):
         new_user_id = random.randint(100,1000000)
         users[new_user_id] = count
 
-        session = request.session
+        # session = request.session
 
         response = render(request, 'index.html')
         response.set_cookie('user_id', new_user_id, httponly=False, max_age=10000)
